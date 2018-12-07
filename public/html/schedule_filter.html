@@ -32,17 +32,21 @@
         </div>
 
         <div id="week">
+            <!-- schedule sub-heading -->
             <button id="previous"> &#8249; </button> <span id="currentweek" style="font-size:25px;font-weight: bold;">
                 02/December/2018 - 08/December/2018
             </span> <button id="next">&#8250;</button>
             <br><br>
         </div>
 
+        <!-- scheudle table -->
         <table id="timetable" align="center"></table>
     </div>
 
     <div id="buttons">
+        <!-- button to go back to personal profile page -->
         <a href="./index.html"><input id="next" type="button" value="Submit" style="border-radius: 15px;width: 100px;background-color: rgba(170, 165, 165, 0.795); font-weight: bold;"></a>
+        <!-- button  to go to filter choice page -->
         <a href="./filter_page.html"><input id="back" type="button" value="Go Back" style="border-radius: 15px;width: 100px;background-color: rgba(170, 165, 165, 0.795); font-weight: bold;"></a>
     </div>
     <br><br>
@@ -56,6 +60,7 @@
             let width = 8;
             let height = 12;
 
+            // for shceudle filter table 
             for (let y = 0; y < height; y++) {
                 let row = document.createElement('tr');
                 timetable.appendChild(row);
@@ -76,6 +81,7 @@
             }
         }
 
+        // clicking the section of the table and showing color when clicked
         function click(colId) {
             return function () {
                 let target = document.getElementById(colId);
