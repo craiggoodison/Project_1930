@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang='en' class=''>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="./interest_filter.css"/>
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDGqo0fgycUa2MPIp2FEieqpK8EW65oZgc",
+      authDomain: "project1-team5-ab874.firebaseapp.com",
+      databaseURL: "https://project1-team5-ab874.firebaseio.com",
+      projectId: "project1-team5-ab874",
+      storageBucket: "project1-team5-ab874.appspot.com",
+      messagingSenderId: "557453246782"
+    };
+    firebase.initializeApp(config);
+  </script>
+  </script>
+</head>
+
+<body background="images/olympic_village.jpeg" style="background-size: 100% 100%;">
+  <div class="topnav">
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <img>
+            </form>
+        </div>
+        <h1>FaceForward</h1>
+    </div>
+
+    <div class="searchbar">
+        <h1 style="color:white;font-weight: bold;"> Search your interest:</h3>
+            <div class="search-container">
+                <form action="/action_page.php">
+                    <input align: "center" type="text" placeholder="Search.." name="search">
+                </form>
+            </div>
+    </div>
+
+  <div id="myBtnContainer">
+    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+    <button class="btn" onclick="filterSelection('Drink')"> Drink</button>
+    <button class="btn" onclick="filterSelection('Computing')"> Computing</button>
+    <button class="btn" onclick="filterSelection('Eat')"> Eat</button>
+    <button class="btn" onclick="filterSelection('Activity')"> Activity</button>
+  </div>
+  
+  <div class="container">
+    <button id='submitBtn' class="filterDiv Drink" onclick="submitClick('Beer')">Beer</button>
+    <button id='submitBtn' class="filterDiv Computing" onclick="submitClick('Python')">Python</button>
+    <button id='submitBtn' class="filterDiv Computing" onclick="submitClick('Java')">Java</button>
+    <button id='submitBtn' class="filterDiv Activity" onclick="submitClick('Hiking')">Hikng</button>
+    <button id='submitBtn' class="filterDiv Activity" onclick="submitClick('Sports')">Sports</button>
+    <button id='submitBtn' class="filterDiv Drink Eat" onclick="submitClick('Pub')">Pub</button>
+    <button id='submitBtn' class="filterDiv Eat" onclick="submitClick('K-Food')">K-Food</button>
+    <button id='submitBtn' class="filterDiv Eat" onclick="submitClick('J-Food')">J-Food</button>
+    <button id='submitBtn' class="filterDiv Travel Drink" onclick="submitClick('Brewery')">Brewery</button>
+    <button id='submitBtn' class="filterDiv Computing Activity" onclick="submitClick('Hackathon')">Hackathon</button>
+    <button id='submitBtn' class="filterDiv Activity Computing" onclick="submitClick('E-Sports')">E-Sports</button>
+    <button id='submitBtn' class="filterDiv Activity" onclick="submitClick('Travel')">Travel</button>
+    <button id='submitBtn' class="filterDiv Drink Eat" onclick="submitClick('Wine')">Wine</button>
+  </div>
+
+  <div id="buttons">
+      <a href="./index.html"><input id="next" type="button" value="Submit" style="border-radius: 15px;width: 100px;background-color: rgba(170, 165, 165, 0.795); font-weight: bold;"></a>
+      <a href="./filter_page.html"><input id="back" type="button" value="Go Back" style="border-radius: 15px;width: 100px;background-color: rgba(170, 165, 165, 0.795); font-weight: bold;"></a>
+  </div>
+  
+  <script>
+  filterSelection("all")
+  function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filterDiv");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+  }
+  
+  function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+  }
+  
+  function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+      }
+    }
+    element.className = arr1.join(" ");
+  }
+  
+  // Add active class to the current button (highlight it)
+  var btnContainer = document.getElementById("myBtnContainer");
+  var btns = btnContainer.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+  </script>
+<script src="./user_database.js"></script>   
+</body>
+</html>

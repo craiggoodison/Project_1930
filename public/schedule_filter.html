@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>schedule_filter</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="schedule_filter.css"/>
+    <script type ="text/javascript" src="schedule_filter.js"></script>
+
+</head>
+
+
+<body background ="images/olympic_village.jpeg">
+
+    <div class="topnav">
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <img>
+            </form>
+        </div>
+        <h1>FaceForward</h1>
+    </div>
+
+    <div id='timetableborder'>
+
+        <div id="title">
+            <p> Enter schedule for week:<br> </p>
+        </div>
+
+        <div id="week">
+            <button id="previous"> &#8249; </button> <span id="currentweek" style="font-size:25px;font-weight: bold;">
+                02/December/2018 - 08/December/2018
+            </span> <button id="next">&#8250;</button>
+            <br><br>
+        </div>
+
+        <table id="timetable" align="center"></table>
+    </div>
+
+    <div id="buttons">
+        <a href="./index.html"><input id="next" type="button" value="Submit" style="border-radius: 15px;width: 100px;background-color: rgba(170, 165, 165, 0.795); font-weight: bold;"></a>
+        <a href="./filter_page.html"><input id="back" type="button" value="Go Back" style="border-radius: 15px;width: 100px;background-color: rgba(170, 165, 165, 0.795); font-weight: bold;"></a>
+    </div>
+    <br><br>
+
+    <script>
+        let timetable = document.getElementById('timetable');
+        let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        let times = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00']
+
+        function createTimetable() {
+            let width = 8;
+            let height = 12;
+
+            for (let y = 0; y < height; y++) {
+                let row = document.createElement('tr');
+                timetable.appendChild(row);
+                for (let x = 0; x < width; x++) {
+                    let col = document.createElement('td');
+                    row.appendChild(col);
+                    if (y == 0 && x != 0) {
+                        col.innerHTML = days[x - 1];
+                        col.className = 'days';
+                    } else if (y != 0 && x == 0) {
+                        col.innerHTML = times[y - 1];
+                        col.className = 'time';
+                    } else {
+                        col.id = y.toString() + x.toString();
+                        col.onclick = click(col.id);
+                    }
+                }
+            }
+        }
+
+        function click(colId) {
+            return function () {
+                let target = document.getElementById(colId);
+                target.style.backgroundColor = 'grey';
+            }
+        }
+
+        createTimetable();
+
+    </script>
+</body>
+</html>

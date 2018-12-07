@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-size: 100% 100%;
+}
+
+#avatar{
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+    float: right;
+}
+
+/* Heading and Search Bar */
+.topnav{
+    overflow: hidden;
+    background-color: rgb(86, 163, 204);
+    color: white;
+    text-align: left;
+    padding: 1em;
+    margin-bottom: 3em;
+}
+
+.topnav .search-container {
+    float: right;
+    margin-top: 1em;
+}
+
+.topnav input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    border-radius: 15px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .topnav .search-container {
+        float: none;
+    }
+
+    .topnav input[type=text],
+    .topnav .search-container button {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+
+    .topnav input[type=text] {
+        border: 1px solid #ccc;
+    }
+}
+
+#title,
+#week {
+    text-align: center;
+    font-size: 240%;
+    margin-top: 1em;
+}
+
+#week #previous {
+    float: left;
+    margin-left: 25%;
+}
+
+#week #next {
+    float: right;
+    margin-right: 25%;
+}
+
+#week button {
+    width: 50px;
+    height: 35px;
+    font-size: 25px;
+}
+
+
+table {
+    width: 70%;
+    border: 1px solid black;
+    border-spacing: 20px;
+    border-collapse: collapse;
+    margin-left: 8%;
+}
+
+#buttons #next {
+    width: 70px;
+    height: 35px;
+    float: right;
+    margin-right: 8%;
+    border: 1px solid rgba(82, 81, 81, 0.678);
+    color: white;
+    margin-bottom: 2em;
+}
+
+#buttons #back {
+    width: 70px;
+    height: 35px;
+    float: left;
+    margin-left: 8%;
+    border: 1px solid rgba(82, 81, 81, 0.678);
+    color: white;
+    margin-bottom: 2em;
+}
+
+#timetable{
+    width: 1000px;
+}
+
+.days,
+td {
+    width: 3em;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+#timetable tr .days {
+    background-color: rgba(197, 197, 197, 0.6);
+    width: 80px;
+    font-size: 100%;
+    vertical-align: bottom;
+}
+.days {
+    font-weight: bold;
+    max-width: 1.5em;
+}
+
+#timetable td {
+    border-right: 1px solid black;
+}
+
+
+#timetable tr .time {
+    height: 100px;
+    text-align: right;
+    vertical-align: top;
+}
+
+#timetable .time {
+    background-color: rgba(197, 197, 197, 0.6);
+    /* text-align: right;
+    width: 50px; */
+} 
+
+#week #previous #currentweek{
+    font-size: 14px;
+}
+
+#timetableborder{
+    border: 2px solid rgba(82, 81, 81, 0.678);
+    height: 600px;
+    overflow: scroll;
+    width: 85%;
+    margin-left: 8em;
+    background-color: rgba(255, 255, 255, 0.90);
+    border-radius: 25px;
+    margin-bottom: 1em;
+}
+
+#timetableborder #timetable{
+    margin-top: 1em;
+    margin-bottom: 2.5em;
+
+}
